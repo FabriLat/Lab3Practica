@@ -1,4 +1,5 @@
 import "./App.css";
+import { Table } from "react-bootstrap";
 
 function App() {
   const netIncomes = [
@@ -7,32 +8,38 @@ function App() {
     { brand: "KFC", income: 1098463 },
   ];
 
-  const average = (netIncomes.reduce(
-    (accumulator, currentValue) => accumulator + currentValue.income,0
-  )/3).toFixed(2);
+  const average = (
+    netIncomes.reduce(
+      (accumulator, currentValue) => accumulator + currentValue.income,
+      0
+    ) / netIncomes.length
+  ).toFixed(2);
 
-  const Table = () => {
+  const TableComponent = () => {
     return (
-      <table>
+      <Table>
         <thead>
           <tr>
-            {netIncomes.map((name, index) => (
-              <th key={index}>
-                Nombre: {name.brand} Ingreso neto: {name.income} ||
-              </th>
-            ))}
+            <th>Nombre</th>
+            <th>Ingreso neto</th>
           </tr>
         </thead>
-      </table>
+        <tbody>
+          {netIncomes.map((name, index) => (
+            <tr key={index}>
+              <td>{name.brand}</td>
+              <td>{name.income}</td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
     );
   };
-
   return (
     <div>
-      <Table />
+      <TableComponent />
       <p>Promedio de ingresos: {average}</p>
     </div>
   );
 }
-
 export default App;
