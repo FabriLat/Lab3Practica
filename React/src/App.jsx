@@ -1,5 +1,5 @@
 import "./App.css";
-import { Table } from "react-bootstrap";
+import TableComponent from "./components/tableComponent/TableComponent";
 
 function App() {
   const netIncomes = [
@@ -15,29 +15,10 @@ function App() {
     ) / netIncomes.length
   ).toFixed(2);
 
-  const TableComponent = () => {
-    return (
-      <Table>
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Ingreso neto</th>
-          </tr>
-        </thead>
-        <tbody>
-          {netIncomes.map((name, index) => (
-            <tr key={index}>
-              <td>{name.brand}</td>
-              <td>{name.income}</td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-    );
-  };
+
   return (
     <div>
-      <TableComponent />
+      <TableComponent netIncomes={netIncomes}/>
       <p>Promedio de ingresos: {average}</p>
     </div>
   );
