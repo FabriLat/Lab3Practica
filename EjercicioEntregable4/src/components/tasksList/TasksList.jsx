@@ -20,6 +20,7 @@ const TasksList = ({ tasks, onDeleteTask, onMarkTask }) => {
                   task.state == true ? "line-through" : false,
               }}
             >
+              
               {task.name}
               <button type="button" onClick={() => markTaskHandler(task.id)}>
                 Marcar hecha
