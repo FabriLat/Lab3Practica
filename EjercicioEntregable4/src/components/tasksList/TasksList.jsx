@@ -17,7 +17,7 @@ const TasksList = ({ tasks, onDeleteTask, onMarkTask }) => {
             <td
               style={{
                 textDecoration:
-                  task.state == "complete" ? "line-through" : "none",
+                  task.state == true ? "line-through" : false,
               }}
             >
               {task.name}
